@@ -1,14 +1,18 @@
 System Requirements
 
 1. PHP version must be higher than 5.3.5
+
    PHP will also need to have the following libraries installed:
-   
+
+
    intl
    curl
    mbstring
    xml
    
+
 2. Installed Cakephp version 3.3.1
+
 
 3. MySql version
 
