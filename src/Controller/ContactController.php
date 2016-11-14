@@ -55,7 +55,7 @@ class ContactController extends AppController
         if ($this->request->is('post')) {
         	if ($this->request->data['reason'] !='Other') {
         		$this->request->data['specify'] = '';
-        		// empty check and unset specify field  for specify and reason validation twick
+        		// empty check and unset specify field  for specify and reason validation
         		unset($this->request->data['specify']); 
         		
         	} 
