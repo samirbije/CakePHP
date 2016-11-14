@@ -29,7 +29,6 @@ CREATE TABLE `contact` (
 
 /*Data for the table `contact` */
 
-insert  into `contact`(`id`,`name`,`last_name`,`organization`,`email`,`text`,`reason`,`specify`,`created`) values (1,'naam','lastai','ogri','emlu@fsfsdf.com','naam','Help','','2016-11-14 04:14:57'),(2,'name gaian','lstnam,e','org','sdfsd@sdgdfgdf.com','test','Other','sfsdfs','2016-11-14 04:15:32'),(3,'new test','last','or','sdfdfsd@sdfsdffss.com','test test test test test test test test \r\ntest \r\ntest \r\ntest \r\ntest test test test test test test test \r\ntest \r\ntest \r\ntest \r\ntest test test test test test test test \r\ntest \r\ntest \r\ntest ','Help','','2016-11-14 04:25:18');
 
 /*Table structure for table `users` */
 
