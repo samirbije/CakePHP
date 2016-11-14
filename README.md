@@ -1,25 +1,31 @@
-# CakePHP Application Skeleton
+System Requirements
 
-[![Build Status](https://img.shields.io/travis/cakephp/app/master.svg?style=flat-square)](https://travis-ci.org/cakephp/app)
-[![License](https://img.shields.io/packagist/l/cakephp/app.svg?style=flat-square)](https://packagist.org/packages/cakephp/app)
+1. PHP version must be higher than 5.3.5
+   PHP will also need to have the following libraries installed:
+   
+   intl
+   curl
+   mbstring
+   xml
+   
+2. Installed Cakephp version 3.3.1
 
-A skeleton for creating applications with [CakePHP](http://cakephp.org) 3.x.
+3. MySql version
 
-The framework source code can be found here: [cakephp/cakephp](https://github.com/cakephp/cakephp).
 
-## Installation
+System Flow
 
-1. Download [Composer](http://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
-2. Run `php composer.phar create-project --prefer-dist cakephp/app [app_name]`.
-
-If Composer is installed globally, run
-```bash
-composer create-project --prefer-dist cakephp/app [app_name]
-```
-
-You should now be able to visit the path to where you installed the app and see the default home page.
-
-## Configuration
-
-Read and edit `config/app.php` and setup the 'Datasources' and any other
-configuration relevant for your application.
+A simple Cake PHP application with only one view.
+Said view consists of a form with the following fields:
+Name, Last Name, Organization, Email, Text and Reason.
+Name, Last Name, Organization will be regular inputs.
+Email needs validation.
+Text will be a large text box (it is supposed to be like the body of an email).
+Reason will be a selector with the following options:
+1. Feedback.
+2. Help.
+3. HR.
+4. Other.
+If Other option is selected, a new Field will appear “Specify”. Where you will be required to specify a reason of the contact.
+All fields are mandatory.
+The application stores in any format the information of the contact and send said information to a contact Email.
