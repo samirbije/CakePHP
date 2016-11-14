@@ -1,9 +1,3 @@
-/*
-SQLyog Enterprise - MySQL GUI v7.02 
-MySQL - 5.5.5-10.1.13-MariaDB : Database - db_techtest
-*********************************************************************
-*/
-
 
 /*!40101 SET NAMES utf8 */;
 
@@ -28,12 +22,14 @@ CREATE TABLE `contact` (
   `email` varchar(255) NOT NULL,
   `text` text NOT NULL,
   `reason` enum('Feedback','Help','HR','Other') NOT NULL,
-  `specify` text NOT NULL,
+  `specify` text,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Data for the table `contact` */
+
+insert  into `contact`(`id`,`name`,`last_name`,`organization`,`email`,`text`,`reason`,`specify`,`created`) values (1,'naam','lastai','ogri','emlu@fsfsdf.com','naam','Help','','2016-11-14 04:14:57'),(2,'name gaian','lstnam,e','org','sdfsd@sdgdfgdf.com','test','Other','sfsdfs','2016-11-14 04:15:32'),(3,'new test','last','or','sdfdfsd@sdfsdffss.com','test test test test test test test test \r\ntest \r\ntest \r\ntest \r\ntest test test test test test test test \r\ntest \r\ntest \r\ntest \r\ntest test test test test test test test \r\ntest \r\ntest \r\ntest ','Help','','2016-11-14 04:25:18');
 
 /*Table structure for table `users` */
 
