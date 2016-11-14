@@ -55,7 +55,7 @@ class ContactController extends AppController
         if ($this->request->is('post')) {
         	if ($this->request->data['reason'] !='Other') {
         		$this->request->data['specify'] = '';
-        		// empty check and unset specify field
+        		// empty check and unset specify field  for specify and reason validation twick
         		unset($this->request->data['specify']); 
         		
         	} 
@@ -76,9 +76,10 @@ class ContactController extends AppController
 					$email->to($to);
 					$email->from($from);
 					$email->subject($subject);
+                    //email template post data pass
 					$email->viewVars(['value' => $this->request->data]);
-					if ($email->send()) {
-                    $this->Flash->success(__('The contact mail has been  sent and saved .'));
+					if ($email->send()) {                       
+                    $this->Flash->success(__('The contact mail has been  sent and saved .'));                       
                     return $this->redirect(['action' => 'add']);
 
                 } else {
