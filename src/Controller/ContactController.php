@@ -55,44 +55,41 @@ class ContactController extends AppController
         if ($this->request->is('post')) {
         	if ($this->request->data['reason'] !='Other') {
         		$this->request->data['specify'] = '';
-        		unset($this->request->data['specify']);
+        		// empty check and unset specify field
+        		unset($this->request->data['specify']); 
         		
         	} 
-            // load email contact     	
-			Configure::load('emailContact');
-			$to         = Configure::read('send.to');
-            $subject    = Configure::read('send.subject');
-            $from       = Configure::read('send.from');
-            $from_name  = Configure::read('send.from_name');
-            //  cakephp email object
-			$email      = new Email();
-            // email layout template 
-			$email->template('send','sendLayout');
-			$email->emailFormat('html');
-			$email->to($to);
-			$email->from($from);
-			$email->subject($subject);
-			$email->viewVars(['value' => $this->request->data]);
-			if ($email->send()) {
                 $contact = $this->Contact->patchEntity($contact, $this->request->data);
                 // save post data to database
                 if ($this->Contact->save($contact)) {
+ 					// load email contact     	
+					Configure::load('emailContact');
+					$to         = Configure::read('send.to');
+					$subject    = Configure::read('send.subject');
+					$from       = Configure::read('send.from');
+					$from_name  = Configure::read('send.from_name');
+					//  cakephp email object
+					$email      = new Email();
+					// email layout template 
+					$email->template('send','sendLayout');
+					$email->emailFormat('html');
+					$email->to($to);
+					$email->from($from);
+					$email->subject($subject);
+					$email->viewVars(['value' => $this->request->data]);
+					if ($email->send()) {
                     $this->Flash->success(__('The contact mail has been  sent and saved .'));
                     return $this->redirect(['action' => 'add']);
 
                 } else {
-                    $this->Flash->error(__('The contact could not be saved. Please input all fields, try again.'));
-
+                	$this->Flash->error(__('Mail not send .'));
                 }
             } else {
-                $this->Flash->error(__('Mail not send .'));
-
+                 $this->Flash->error(__('The contact could not be saved. Please input all fields, try again.'));
             }
-
         }
         $this->set(compact('contact'));
         $this->set('_serialize', ['contact']);
-        
     }
 
     /**
@@ -139,7 +136,6 @@ class ContactController extends AppController
             $this->Flash->error(__('The contact could not be deleted. Please, try again.'));
 
         }
-
         return $this->redirect(['action' => 'index']);
 
     }
