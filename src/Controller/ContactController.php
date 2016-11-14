@@ -50,13 +50,13 @@ class ContactController extends AppController
      */
     public function add()
     {
-       	
         $contact        = $this->Contact->newEntity();
         // post check 
         if ($this->request->is('post')) {
         	if ($this->request->data['reason'] !='Other') {
         		$this->request->data['specify'] = '';
-
+        		unset($this->request->data['specify']);
+        		
         	} 
             // load email contact     	
 			Configure::load('emailContact');
@@ -64,9 +64,7 @@ class ContactController extends AppController
             $subject    = Configure::read('send.subject');
             $from       = Configure::read('send.from');
             $from_name  = Configure::read('send.from_name');
-
             //  cakephp email object
-
 			$email      = new Email();
             // email layout template 
 			$email->template('send','sendLayout');
