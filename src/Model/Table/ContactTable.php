@@ -52,16 +52,10 @@ class ContactTable extends Table
         ->add('email', 'validFormat', [
                     'rule' => 'email',
                     'message' => 'E-mail must be valid'
-        
         ])
-        ->add('specify',[
-            'seasonEmptyCheck'=>[
-            'rule'=>'seasonEmptyCheck',
-            'provider'=>'table',
-            'message'=>'Please enter the specify'
-             ]
-            ]);
-
+		->notEmpty('specify','Please enter specify');
+		
+		
         return $validator;       
     }
     /**
@@ -71,13 +65,12 @@ class ContactTable extends Table
      * @return boolean 
      */
 public function seasonEmptyCheck($value,$context){
-        if ($value =='' && $context['data']['specify']=='Other') {
+        if ($value =='' && $context['data']['reason']=='Other') {
             return false;
 
         } else {
             return true;
 
         }
-
     }
 }
