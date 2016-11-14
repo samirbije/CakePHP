@@ -53,7 +53,6 @@ class AppController extends Controller
 					]
 				]
 			],
-	
 		]);
         /*
          * Enable the following components for recommended CakePHP security settings.
@@ -72,17 +71,14 @@ class AppController extends Controller
     public function beforeRender(Event $event)
     {
         if (!array_key_exists('_serialize', $this->viewVars) &&
-            in_array($this->response->type(), ['application/json', 'application/xml'])
-        ) {
+            in_array($this->response->type(), ['application/json', 'application/xml'])) {
             $this->set('_serialize', true);
         }
         //login check and set 
-        if($this->request->session()->read('Auth.User')){
-        	$this->set('loggedIn',true);
-        	
+        if ($this->request->session()->read('Auth.User')) {
+        	$this->set('loggedIn',true);     	
         } else {
-        	$this->set('loggedIn',false);
-			        	
+        	$this->set('loggedIn',false);			        	
         }
     }
 }
