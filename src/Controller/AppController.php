@@ -50,13 +50,9 @@ class AppController extends Controller
 		'fields' =>[
 		'username' => 'email',
 		'password' => 'password'
-				]
-			]
-		],
-		//'loginAction' =>[
-		//	'controller'=>'Users',
-			//'action'=>'login'
-			//]
+				    ]
+			    ]
+		    ],	
 		]);
         /*
          * Enable the following components for recommended CakePHP security settings.
