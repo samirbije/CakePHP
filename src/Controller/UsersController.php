@@ -11,7 +11,6 @@ use Cake\Event\Event;
  */
 class UsersController extends AppController
 {
-
     /**
      * Index method
      *
@@ -59,7 +58,6 @@ class UsersController extends AppController
             } else {
                 $this->Flash->error(__('The user could not be saved. Please, try again.'));
             }
-
         }
         $this->set(compact('user'));
         $this->set('_serialize', ['user']);
@@ -119,18 +117,15 @@ class UsersController extends AppController
      */
     public function login()
     {   	
-	if ($this->request->is('post')){
+	    if ($this->request->is('post')){
     		$user = $this->Auth->identify();
     		if ($user) {
     			$this->Auth->setUser($user);
     			return $this->redirect(['controller' => 'contact']);
-
     		}
     		//bad login
     		$this->Flash->error('Invalid Login');
-
     	}
-
     }
     /**
      * logout method
