@@ -26,6 +26,7 @@ Front End
 http://host/techtest/
 
 Modified and created files list bellow
+
 1. Database configure
 config/app.php
 
@@ -34,11 +35,14 @@ config/emailContact.php
 
 3. Email layout file 
 src/template/layout/Email/html/sendLayout.ctp
+
 src/template/Email/html/sendLayout.ctp
 
 4. Admin Login and Auth
 /src/Controller/AppController.php
+
 /src/Controller/UsersController.php
+
 5. Contact Form
 /src/Controller/ContactController.php
 
