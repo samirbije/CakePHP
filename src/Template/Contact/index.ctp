@@ -2,7 +2,7 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('List Users'), ['controller'=>'users','action' => 'index']) ?></li>
-        <!--<li><?= $this->Html->link(__('New Contact'), ['action' => 'add']) ?></li>-->
+        <li><?= $this->Html->link(__('List Contact'), ['controller'=>'contact','action' => 'index']) ?></li>
     </ul>
 </nav>
 <div class="contact index large-9 medium-8 columns content">
@@ -30,8 +30,7 @@
                 <td><?= h($contact->reason) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $contact->id]) ?>
-                    <!--<?= $this->Html->link(__('Edit'), ['action' => 'edit', $contact->id]) ?>-->
-                    <!--<?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $contact->id], ['confirm' => __('Are you sure you want to delete # {0}?', $contact->id)]) ?>-->
+                    
                 </td>
             </tr>
             <?php endforeach; ?>

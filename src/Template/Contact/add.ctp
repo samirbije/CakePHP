@@ -1,6 +1,6 @@
 
 <div class="contact form large-9 medium-8 columns content">
-    <?= $this->Form->create($contact) ?>
+    <?= $this->Form->create($contact, ['class' => 'form-group', 'novalidate' => true])?>
     <fieldset>
         <legend><?= __('Add Contact') ?></legend>
         <?php
@@ -17,6 +17,7 @@
 			    'label' => 'Reason'
 			   )
 			);
+            //print_r($contact);
             echo  isset($this->request->data['reason']) && $this->request->data['reason']=='Other'?'<div id="specified" style="display:block;" class="input select required error">':'<div id="specified" style="display:none;" class="input select required error">';
 			echo $this->Form->input('specify',array('value'=>isset($this->request->data['specify'])?htmlspecialchars($this->request->data['specify'],ENT_QUOTES):''));
             echo '</div>';

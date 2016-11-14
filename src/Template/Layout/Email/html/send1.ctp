@@ -3,7 +3,8 @@
 <head>
   <title> Test mail <?= $this->fetch('title') ?></title>
 </head>
-<body> 
+<body>
+test 
   <?= $this->fetch('content') ?>
 </body>
 </html>

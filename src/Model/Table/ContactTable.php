@@ -54,7 +54,7 @@ class ContactTable extends Table
                     'message' => 'E-mail must be valid'
         
         ])
-        ->add('reason',[
+        ->add('specify',[
             'seasonEmptyCheck'=>[
             'rule'=>'seasonEmptyCheck',
             'provider'=>'table',
@@ -71,7 +71,7 @@ class ContactTable extends Table
      * @return boolean 
      */
 public function seasonEmptyCheck($value,$context){
-        if ($value =='Other' && $context['data']['specify']=='') {
+        if ($value =='' && $context['data']['specify']=='Other') {
             return false;
 
         } else {

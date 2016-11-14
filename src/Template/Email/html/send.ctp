@@ -1,25 +1,38 @@
 
-<table >
+<table border="0"  cellspacing="0" cellpadding="5">
 	<tr>
 		<td>
-Name : <?php echo (($this->request->data['name'])?htmlspecialchars($this->request->data['name'],ENT_QUOTES):'')?>
+Name : <?php echo (isset($this->request->data['name'])?htmlspecialchars($this->request->data['name'],ENT_QUOTES):'')?>
 </td>
+</tr>
+<tr>
 <td>
-Last Name : <?php echo (($this->request->data['name'])?htmlspecialchars($this->request->data['last_name'],ENT_QUOTES):'')?>
+Last Name : <?php echo (isset($this->request->data['last_name'])?htmlspecialchars($this->request->data['last_name'],ENT_QUOTES):'')?>
 </td>
+</tr>
+<tr>
 <td>
-Orgaination : <?php echo (($this->request->data['name'])?htmlspecialchars($this->request->data['organization'],ENT_QUOTES):'')?>
+Orgaination : <?php echo (isset($this->request->data['organization'])?htmlspecialchars($this->request->data['organization'],ENT_QUOTES):'')?>
 </td>
+</tr>
+<tr>
 <td>
-Email :<?php echo (($this->request->data['name'])?htmlspecialchars($this->request->data['email'],ENT_QUOTES):'')?>
+Email :<?php echo (isset($this->request->data['email'])?htmlspecialchars($this->request->data['email'],ENT_QUOTES):'')?>
 </td>
+</tr>
+<tr>
 <td>
-Text : <?php echo (($this->request->data['name'])?htmlspecialchars($this->request->data['text'],ENT_QUOTES):'')?>
+Text : <?php echo (isset($this->request->data['text'])?htmlspecialchars($this->request->data['text'],ENT_QUOTES):'')?>
 </td>
+</tr>
+<tr>
 <td>
-Reason :<?php echo (($this->request->data['name'])?htmlspecialchars($this->request->data['reason'],ENT_QUOTES):'')?>
+Reason :<?php echo (isset($this->request->data['reason'])?htmlspecialchars($this->request->data['reason'],ENT_QUOTES):'')?>
 </td>
+</tr>
+<tr>
 <td>
-Specify:<?php echo (($this->request->data['name'])?htmlspecialchars($this->request->data['specify'],ENT_QUOTES):'')?>
+Specify:<?php echo (isset($this->request->data['specify'])?htmlspecialchars($this->request->data['specify'],ENT_QUOTES):'')?>
 </td>
+</tr>
 </table>
