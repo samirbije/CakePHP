@@ -55,40 +55,39 @@ class ContactController extends AppController
         if ($this->request->is('post')) {
         	if ($this->request->data['reason'] !='Other') {
         		$this->request->data['specify'] = '';
-        		// empty check and unset specify field  for specify and reason validation
-        		unset($this->request->data['specify']); 
-        		
+        		//empty check and unset specify field  for specify and reason validation
+        		unset($this->request->data['specify']);        		
         	} 
                 $contact = $this->Contact->patchEntity($contact, $this->request->data);
-                // save post data to database
+                //save post data to database
                 if ($this->Contact->save($contact)) {
- 					// load email contact     	
+ 					//load email contact     	
 					Configure::load('emailContact');
 					$to         = Configure::read('send.to');
 					$subject    = Configure::read('send.subject');
 					$from       = Configure::read('send.from');
 					$from_name  = Configure::read('send.from_name');
-					//  cakephp email object
+					//cakephp email object
 					$email      = new Email();
-					// email layout template 
+					//email layout template 
 					$email->template('send','sendLayout');
 					$email->emailFormat('html');
 					$email->to($to);
 					$email->from($from);
 					$email->subject($subject);
-                    //email template post data pass
+                    //post data pass to the email template
 					$email->viewVars(['value' => $this->request->data]);
+                    //check mail sent
 					if ($email->send()) {                       
                     $this->Flash->success(__('The contact mail has been  sent and saved .'));                       
                     return $this->redirect(['action' => 'add']);
-
                 } else {
                 	$this->Flash->error(__('Mail not send .'));
                 }
             } else {
                  $this->Flash->error(__('The contact could not be saved. Please input all fields, try again.'));
-            }
-        }
+          }
+       }
         $this->set(compact('contact'));
         $this->set('_serialize', ['contact']);
     }
@@ -132,13 +131,10 @@ class ContactController extends AppController
         $contact = $this->Contact->get($id);
         if ($this->Contact->delete($contact)) {
             $this->Flash->success(__('The contact has been deleted.'));
-
         } else {
             $this->Flash->error(__('The contact could not be deleted. Please, try again.'));
-
         }
         return $this->redirect(['action' => 'index']);
-
     }
     /**
      * beforefilter method
@@ -148,6 +144,5 @@ class ContactController extends AppController
      */
     function beforeFilter(Event $event) {
 		$this->Auth->allow(array('controller' => 'contact', 'action' => 'add'));
-
 	}
 }
