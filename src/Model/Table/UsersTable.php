@@ -53,10 +53,9 @@ class UsersTable extends Table
          ->add('email', 'email', [
             'rule'      => 'email',
             'message'   => 'Invalid Email'
-        ])
-    	;
+        ]);
+        
         return $validator;
-
     }
 
     /**
