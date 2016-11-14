@@ -22,7 +22,7 @@ Email :<?php echo (isset($this->request->data['email'])?htmlspecialchars($this->
 </tr>
 <tr>
 <td>
-Text : <?php echo (isset($this->request->data['text'])?htmlspecialchars($this->request->data['text'],ENT_QUOTES):'')?>
+Text : <?php echo (isset($this->request->data['text'])?nl2br(htmlspecialchars($this->request->data['text'],ENT_QUOTES)):'')?>
 </td>
 </tr>
 <tr>
@@ -30,9 +30,15 @@ Text : <?php echo (isset($this->request->data['text'])?htmlspecialchars($this->r
 Reason :<?php echo (isset($this->request->data['reason'])?htmlspecialchars($this->request->data['reason'],ENT_QUOTES):'')?>
 </td>
 </tr>
+<?php
+if(isset($this->request->data['specify']) && $this->request->data['specify']!=''){
+?>
 <tr>
 <td>
-Specify:<?php echo (isset($this->request->data['specify'])?htmlspecialchars($this->request->data['specify'],ENT_QUOTES):'')?>
+Specify:<?php echo (isset($this->request->data['specify'])?nl2br(htmlspecialchars($this->request->data['specify'],ENT_QUOTES)):'')?>
 </td>
 </tr>
+<?php
+}
+?>
 </table>
