@@ -43,20 +43,20 @@ class ContactTable extends Table
     public function validationDefault(Validator $validator)
     {	
         $validator
-         ->notEmpty('name','Please enter name')
-         ->notEmpty('last_name','Please enter last name')
-         ->notEmpty('organization','Please enter organization')
-         ->notEmpty('text','Please enter text')
-         ->notEmpty('reason','Please enter reason')
-         ->notEmpty('email', __('Email is required field'))
-        ->add('email', 'validFormat', [
-                    'rule' => 'email',
-                    'message' => 'E-mail must be valid'
-        ])
-		->notEmpty('specify','Please enter specify');
-		
-		
-        return $validator;       
+            ->notEmpty('name','Please enter name')
+            ->notEmpty('last_name','Please enter last name')
+            ->notEmpty('organization','Please enter organization')
+            ->notEmpty('text','Please enter text')
+            ->notEmpty('reason','Please enter reason')
+            ->notEmpty('email', __('Email is required field'))
+            ->add('email', 'validFormat', [
+                        'rule' => 'email',
+                        'message' => 'E-mail must be valid'
+                    ])
+            ->notEmpty('specify','Please enter specify');
+
+
+            return $validator;       
     }
     /**
      * Default custom validation rules.
@@ -67,10 +67,8 @@ class ContactTable extends Table
 public function seasonEmptyCheck($value,$context){
         if ($value =='' && $context['data']['reason']=='Other') {
             return false;
-
         } else {
             return true;
-
         }
     }
 }
