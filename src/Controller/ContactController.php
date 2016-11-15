@@ -79,15 +79,15 @@ class ContactController extends AppController
 					$email->viewVars(['value' => $this->request->data]);
                     //check mail sent
 					if ($email->send()) {                       
-                    $this->Flash->success(__('The contact mail has been  sent and saved .'));                       
-                    return $this->redirect(['action' => 'add']);
+                        $this->Flash->success(__('The contact mail has been  sent and saved .'));                       
+                        return $this->redirect(['action' => 'add']);
+                    } else {
+                	    $this->Flash->error(__('Mail not send .'));
+                    }
                 } else {
-                	$this->Flash->error(__('Mail not send .'));
+                    $this->Flash->error(__('The contact could not be saved. Please input all fields, try again.'));
                 }
-            } else {
-                 $this->Flash->error(__('The contact could not be saved. Please input all fields, try again.'));
-          }
-       }
+        }
         $this->set(compact('contact'));
         $this->set('_serialize', ['contact']);
     }
