@@ -1,4 +1,4 @@
-System Requirements
+System Requirements as bellow
 
 1. PHP version must be higher than 5.3.5
 
